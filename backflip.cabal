@@ -19,6 +19,8 @@ library
   exposed-modules:     Fizbin.Test.Backflip
   other-extensions:    TupleSections
   build-depends:       base, array
+                       , test-framework-hunit,
+                       test-framework, directory, process, HUnit
   hs-source-dirs:      src
   default-language:    Haskell2010
 
@@ -28,3 +30,10 @@ executable BackflipDemo
   hs-source-dirs:      src-bin
   default-language:    Haskell2010
   
+test-suite BackflipShellTests
+  type:                exitcode-stdio-1.0
+  main-is:             BackflipShellTests.hs
+  hs-source-dirs:      test
+  build-depends:       backflip, base, test-framework-hunit,
+                       test-framework, directory, process, HUnit
+  default-language:    Haskell2010
